@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR" class="bg-gray-50 dark:bg-gray-900">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Dopamine Detox SaaS Application</title>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        min-height: 100%;
+        width: 100%;
+      }
+      body {
+        min-height: 100vh;
+        background-color: #f9fafb; /* bg-gray-50 */
+      }
+      html.dark body {
+        background-color: #111827; /* bg-gray-900 */
+      }
+      #root {
+        min-height: 100vh;
+        width: 100%;
+      }
+    </style>
+    <!-- Script para definir o tema antes do carregamento da página -->
+    <script>
+      // Verificar se o tema está definido no localStorage
+      const theme = localStorage.getItem('theme');
+      // Se o tema estiver definido como 'dark' ou não estiver definido e o sistema preferir dark mode
+      if (theme === 'dark' || 
+         (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
